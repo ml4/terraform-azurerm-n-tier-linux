@@ -43,3 +43,9 @@ variable "instance_config" {
     admin_password               = ""
   }
 }
+
+variable "disable_password_authentication" {
+  type = bool
+  description = "Set password auth on or off.  Needs to be false for admin_password to be set"
+  default = false
+}
