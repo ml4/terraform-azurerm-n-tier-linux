@@ -19,6 +19,7 @@ resource "azurerm_network_interface" "ext" {
 
   ip_configuration {
     name                          = "external"
+    private_ip_address_allocation = "Dynamic"
   }
 }
 
