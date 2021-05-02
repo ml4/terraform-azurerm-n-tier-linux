@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
-resource "azurerm_network_interface" "pub" {
+resource "azurerm_network_interface" "ext" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic-ext"
   location            = var.location
   resource_group_name = "${var.prefix}-${var.rg_name}"
@@ -32,6 +32,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   disable_password_authentication = var.disable_password_authentication
   network_interface_ids = [
     azurerm_network_interface.main.id,
+    azurerm_network_interface.ext.id
   ]
 
   os_disk {
