@@ -19,6 +19,7 @@ resource "azurerm_network_interface" "ext" {
 
   ip_configuration {
     name                          = "external"
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
   }
 }
