@@ -1,7 +1,7 @@
 //// main.tf terraform configuration
 //
 resource "azurerm_network_interface" "main" {
-  name                = "${azurerm_linux_virtual_machine.name}-nic"
+  name                = "${var.prefix}-${var.instance_config.vm_name}-nic"
   location            = var.location
   resource_group_name = var.rg_name
 
