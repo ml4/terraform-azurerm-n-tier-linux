@@ -7,7 +7,7 @@
 //// g = resource parameter to output
 //// h = resource subparameter if applicable
 //
-output "awvm-awvm-main-public_ip_address" {
-  value       = azurerm_windows_virtual_machine.main.public_ip_address
-  description = "Azure Windows VM: Azure Windows VM public IP address"
+output "alvm-alvm-main-public_ip_address" {
+  value       = azurerm_linux_virtual_machine.main.public_ip_address
+  description = "Azure Linux VM: Azure Linux VM public IP address"
 }
