@@ -33,13 +33,13 @@ variable "instance_config" {
   })
   default = {
     vm_name                      = "azure-linuxvm"
-    os_publisher                 = "MicrosoftWindowsServer"
-    os_offer                     = "WindowsServer"
-    os_sku                       = "2016-Datacenter"
+    os_publisher                 = "Canonical"
+    os_offer                     = "UbuntuServer"
+    os_sku                       = "18.04-LTS"
     os_version                   = "latest"
     os_disk_storage_account_type = "Standard_LRS"
-    machine_size                 = "Standard_F2"
-    admin_username               = "adminuser"
+    machine_size                 = "Standard_D2_v4"
+    admin_username               = "ubuntu"
     admin_password               = ""
   }
 }

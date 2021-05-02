@@ -15,7 +15,7 @@ resource "azurerm_network_interface" "main" {
 resource "azurerm_linux_virtual_machine" "main" {
   name                = "${var.prefix}-${var.instance_config.vm_name}"
   resource_group_name = var.rg_name
-  location            = azurerm_resource_group.main.location
+  location            = var.location
   size                = var.instance_config.machine_size
   admin_username      = var.instance_config.admin_username
   admin_password      = var.instance_config.admin_password
