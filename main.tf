@@ -3,7 +3,7 @@
 resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic"
   location            = var.location
-  resource_group_name = var.rg_name
+  resource_group_name = "${var.prefix}-${var.rg_name}"
 
   ip_configuration {
     name                          = "internal"
@@ -14,7 +14,7 @@ resource "azurerm_network_interface" "main" {
 
 resource "azurerm_linux_virtual_machine" "main" {
   name                = "${var.prefix}-${var.instance_config.vm_name}"
-  resource_group_name = var.rg_name
+  resource_group_name = "${var.prefix}-${var.rg_name}"
   location            = var.location
   size                = var.instance_config.machine_size
   admin_username      = var.instance_config.admin_username
