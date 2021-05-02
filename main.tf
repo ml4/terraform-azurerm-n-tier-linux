@@ -9,19 +9,15 @@ resource "azurerm_network_interface" "main" {
     name                          = "internal"
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id = count.index == 1 ? azurerm_public_ip.public_ip.id ? none
   }
 }
 
-resource "azurerm_network_interface" "ext" {
+resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic-ext"
-  location            = var.location
   resource_group_name = "${var.prefix}-${var.rg_name}"
-
-  ip_configuration {
-    name                          = "external"
-    subnet_id                     = var.subnet_id
-    private_ip_address_allocation = "Dynamic"
-  }
+  location            = var.location
+  allocation_method   = "Dynamic"
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
@@ -33,8 +29,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   admin_password      = var.instance_config.admin_password
   disable_password_authentication = var.disable_password_authentication
   network_interface_ids = [
-    azurerm_network_interface.main.id,
-    azurerm_network_interface.ext.id
+    azurerm_network_interface.main.id
   ]
 
   os_disk {
