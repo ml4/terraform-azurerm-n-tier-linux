@@ -1,7 +1,7 @@
 //// main.tf terraform configuration
 //
 resource "azurerm_network_interface" "main" {
-  name                = "${var.prefix}-${var.instance_config.vm_name}-nic"
+  name                = "${var.prefix}-${var.instance_config.vm_name}-nic-int"
   location            = var.location
   resource_group_name = "${var.prefix}-${var.rg_name}"
 
@@ -9,6 +9,16 @@ resource "azurerm_network_interface" "main" {
     name                          = "internal"
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_network_interface" "pub" {
+  name                = "${var.prefix}-${var.instance_config.vm_name}-nic-ext"
+  location            = var.location
+  resource_group_name = "${var.prefix}-${var.rg_name}"
+
+  ip_configuration {
+    name                          = "external"
   }
 }
 
