@@ -8,7 +8,7 @@ resource "azurerm_resource_group" "main" {
 resource "azurerm_network_interface" "main" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic-int"
   location            = var.location
-  resource_group_name = "${var.prefix}-${var.rg_name}"
+  resource_group_name = azurerm_resource_group.main.name
 
   ip_configuration {
     name                          = "internal"
@@ -20,14 +20,14 @@ resource "azurerm_network_interface" "main" {
 
 resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic-ext"
-  resource_group_name = "${var.prefix}-${var.rg_name}"
+  resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   allocation_method   = "Dynamic"
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
   name                = "${var.prefix}-${var.instance_config.vm_name}"
-  resource_group_name = "${var.prefix}-${var.rg_name}"
+  resource_group_name = azurerm_resource_group.main.name
   location            = var.location
   size                = var.instance_config.machine_size
   admin_username      = var.instance_config.admin_username
