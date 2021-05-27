@@ -14,7 +14,7 @@ resource "azurerm_network_interface" "main" {
     name                          = "internal"
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id = azurerm_public_ip.public_ip.id
+    public_ip_address_id          = azurerm_public_ip.public_ip.id
   }
 }
 
@@ -27,12 +27,12 @@ resource "azurerm_public_ip" "public_ip" {
 }
 
 resource "azurerm_linux_virtual_machine" "main" {
-  name                = "${var.prefix}-${var.instance_config.vm_name}"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = var.location
-  size                = var.instance_config.machine_size
-  admin_username      = var.instance_config.admin_username
-  admin_password      = var.instance_config.admin_password
+  name                            = "${var.prefix}-${var.instance_config.vm_name}"
+  resource_group_name             = azurerm_resource_group.main.name
+  location                        = var.location
+  size                            = var.instance_config.machine_size
+  admin_username                  = var.instance_config.admin_username
+  admin_password                  = var.instance_config.admin_password
   disable_password_authentication = var.disable_password_authentication
   network_interface_ids = [
     azurerm_network_interface.main.id
