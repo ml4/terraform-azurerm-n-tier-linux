@@ -18,6 +18,7 @@ resource "azurerm_network_interface" "main" {
   }
 }
 
+// remove this resource to have only private IP
 resource "azurerm_public_ip" "public_ip" {
   name                = "${var.prefix}-${var.instance_config.vm_name}-nic-ext"
   resource_group_name = azurerm_resource_group.main.name
