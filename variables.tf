@@ -59,36 +59,12 @@ variable "database_startup_script" {
   default = ""
 }
 
-//// networking related
-//
-variable "vnet_address_space" {
-  type        = list(string)
-  description = "(Optional) list of vnet address ranges"
-  default     = ["10.0.0.0/16"]
-}
+// linuxvm related
 
-variable "public_subnet_address_spaces" {
-  description = "A list of publically accessible subnet address spaces and names."
-  type = list(object({
-    name          = string
-    address_space = string
-  }))
+variable "subnet_id" {
+  type        = string
+  description = "ID of a single vnet subnet"
 }
-
-variable "private_subnet_address_spaces" {
-  description = "A list of privately accessible subnet address spaces and names."
-  type = list(object({
-    name          = string
-    address_space = string
-  }))
-}
-
-//// linuxvm related
-//
-// variable "subnet_id" {
-//   type        = string
-//   description = "ID of a single vnet subnet"
-// }
 
 variable "web_instance_config" {
   type = object({

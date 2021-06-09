@@ -6,7 +6,7 @@ Terraform child module to manage creation of generic linux VMs.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.3 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.15.4 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 2.57.0 |
 
 ## Providers
@@ -58,11 +58,8 @@ No modules.
 | <a name="input_disable_password_authentication"></a> [disable\_password\_authentication](#input\_disable\_password\_authentication) | Set password auth on or off.  Needs to be false for admin\_password to be set | `bool` | `false` | no |
 | <a name="input_location"></a> [location](#input\_location) | Location to deploy to | `string` | `"West Europe"` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Main prefix for all objects | `string` | n/a | yes |
-| <a name="input_private_subnet_address_spaces"></a> [private\_subnet\_address\_spaces](#input\_private\_subnet\_address\_spaces) | A list of privately accessible subnet address spaces and names. | <pre>list(object({<br>    name          = string<br>    address_space = string<br>  }))</pre> | n/a | yes |
-| <a name="input_public_subnet_address_spaces"></a> [public\_subnet\_address\_spaces](#input\_public\_subnet\_address\_spaces) | A list of publically accessible subnet address spaces and names. | <pre>list(object({<br>    name          = string<br>    address_space = string<br>  }))</pre> | n/a | yes |
 | <a name="input_rg_name"></a> [rg\_name](#input\_rg\_name) | Resource group name | `string` | n/a | yes |
-| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | Subnet to deploy to | `string` | n/a | yes |
-| <a name="input_vnet_address_space"></a> [vnet\_address\_space](#input\_vnet\_address\_space) | (Optional) list of vnet address ranges | `list(string)` | <pre>[<br>  "10.0.0.0/16"<br>]</pre> | no |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | ID of a single vnet subnet | `string` | n/a | yes |
 | <a name="input_web"></a> [web](#input\_web) | set to true to include web tier | `string` | `false` | no |
 | <a name="input_web_instance_config"></a> [web\_instance\_config](#input\_web\_instance\_config) | n/a | <pre>object({<br>    vm_name                      = string<br>    os_publisher                 = string<br>    os_offer                     = string<br>    os_sku                       = string<br>    os_version                   = string<br>    os_disk_storage_account_type = string<br>    machine_size                 = string<br>    admin_username               = string<br>    admin_password               = string<br>  })</pre> | <pre>{<br>  "admin_password": "",<br>  "admin_username": "rhel",<br>  "machine_size": "Standard_D2_v4",<br>  "os_disk_storage_account_type": "Standard_LRS",<br>  "os_offer": "RHEL",<br>  "os_publisher": "RedHat",<br>  "os_sku": "7_9",<br>  "os_version": "7.9.2021051701",<br>  "vm_name": "rmg-test-web"<br>}</pre> | no |
 | <a name="input_web_startup_script"></a> [web\_startup\_script](#input\_web\_startup\_script) | // templates | `string` | `""` | no |
