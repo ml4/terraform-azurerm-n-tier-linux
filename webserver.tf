@@ -2,7 +2,7 @@
 
 resource "azurerm_resource_group" "web" {
   count    = var.web ? 1 : 0
-  name     = "${var.prefix}-${var.rg_name}-web"
+  name     = "${var.prefix}-${var.rg_name}"
   location = var.location
 }
 
@@ -31,7 +31,7 @@ resource "azurerm_public_ip" "web" {
 
 resource "azurerm_linux_virtual_machine" "web" {
   count                           = var.web ? 1 : 0
-  name                            = "${var.prefix}-${var.web_instance_config.vm_name}-web"
+  name                            = "${var.prefix}-${var.web_instance_config.vm_name}"
   resource_group_name             = azurerm_resource_group.web[count.index].name
   location                        = var.location
   size                            = var.web_instance_config.machine_size

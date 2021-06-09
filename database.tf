@@ -2,7 +2,7 @@
 
 resource "azurerm_resource_group" "db" {
   count    = var.database ? 1 : 0
-  name     = "${var.prefix}-${var.rg_name}-db"
+  name     = "${var.prefix}-${var.rg_name}"
   location = var.location
 }
 
@@ -31,7 +31,7 @@ resource "azurerm_public_ip" "db" {
 
 resource "azurerm_linux_virtual_machine" "db" {
   count                           = var.database ? 1 : 0
-  name                            = "${var.prefix}-${var.db_instance_config.vm_name}-db"
+  name                            = "${var.prefix}-${var.db_instance_config.vm_name}"
   resource_group_name             = azurerm_resource_group.db[count.index].name
   location                        = var.location
   size                            = var.db_instance_config.machine_size
