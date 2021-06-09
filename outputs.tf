@@ -15,21 +15,16 @@ output "web_startup_script" {
   description = "startup script when instance boots"
 }
 
-output "network_public_subnet_id" {
-  value       = azurerm_subnet.public[*].id
-  description = "VNet public subnet ID(s)"
-}
-
-output "network_private_subnet_id" {
-  value       = azurerm_subnet.private[*].id
-  description = "VNet private subnet ID(s)"
-}
-
 //// linux vm related
 //
 output "linuxvm-web-public_ip_address" {
   value       = azurerm_linux_virtual_machine.web[*].public_ip_address
   description = "Azure Linux VM: Azure Linux VM Web Server public IP address"
+}
+
+output "linuxvm-web-private_ip_address" {
+  value       = azurerm_linux_virtual_machine.web[*].private_ip_address
+  description = "Azure Linux VM: Azure Linux VM Web Server private IP address"
 }
 
 // output "linuxvm-app-public_ip_address" {

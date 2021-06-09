@@ -69,9 +69,8 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_database_startup_script"></a> [database\_startup\_script](#output\_database\_startup\_script) | startup script when instance boots |
+| <a name="output_linuxvm-web-private_ip_address"></a> [linuxvm-web-private\_ip\_address](#output\_linuxvm-web-private\_ip\_address) | Azure Linux VM: Azure Linux VM Web Server private IP address |
 | <a name="output_linuxvm-web-public_ip_address"></a> [linuxvm-web-public\_ip\_address](#output\_linuxvm-web-public\_ip\_address) | Azure Linux VM: Azure Linux VM Web Server public IP address |
-| <a name="output_network_private_subnet_id"></a> [network\_private\_subnet\_id](#output\_network\_private\_subnet\_id) | VNet private subnet ID(s) |
-| <a name="output_network_public_subnet_id"></a> [network\_public\_subnet\_id](#output\_network\_public\_subnet\_id) | VNet public subnet ID(s) |
 | <a name="output_web_startup_script"></a> [web\_startup\_script](#output\_web\_startup\_script) | startup script when instance boots |
 | <a name="output_windows_app_startup_script"></a> [windows\_app\_startup\_script](#output\_windows\_app\_startup\_script) | startup script when instance boots |
 <!-- END_TF_DOCS -->
