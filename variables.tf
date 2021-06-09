@@ -74,7 +74,7 @@ variable "web_instance_config" {
     admin_password               = string
   })
   default = {
-    vm_name                      = "rmg-test-web"
+    vm_name                      = "test-web"
     machine_size                 = "Standard_D2_v4"
     os_publisher                 = "RedHat"
     os_offer                     = "RHEL"
@@ -99,7 +99,7 @@ variable "app_instance_config" {
     admin_password               = string
   })
   default = {
-    vm_name                      = "rmg-test-web"
+    vm_name                      = "test-web"
     machine_size                 = "Standard_D2_v4"
     os_publisher                 = "RedHat"
     os_offer                     = "RHEL"
@@ -124,7 +124,7 @@ variable "db_instance_config" {
     admin_password               = string
   })
   default = {
-    vm_name                      = "rmg-test-web"
+    vm_name                      = "test-web"
     machine_size                 = "Standard_D2_v4"
     os_publisher                 = "RedHat"
     os_offer                     = "RHEL"
