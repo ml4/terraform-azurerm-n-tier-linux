@@ -59,13 +59,8 @@ variable "database_startup_script" {
   default = ""
 }
 
-// linuxvm related
-
-variable "subnet_id" {
-  type        = string
-  description = "ID of a single vnet subnet"
-}
-
+//// linuxvm related
+//
 variable "web_instance_config" {
   type = object({
     vm_name                      = string
