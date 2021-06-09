@@ -14,9 +14,9 @@ resource "azurerm_network_interface" "db" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.private[count.index].id
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = var.subnet_id
+    public_ip_address_id          = azurerm_public_ip.db[count.index].id
   }
 }
 
