@@ -2,7 +2,7 @@
 
 // Re module.network-vnet.avn-as-public-subnet_id[0], have a look at https://github.com/ml4/terraform-azurerm-network-vnet
 
-//// three tier arch
+//// three tier arch - set app to false for a web/db 2-tier arch
 //
 module "n-tier-linux-web" {
   source    = "app.terraform.io/ml4-hc/n-tier-linux/azurerm"
